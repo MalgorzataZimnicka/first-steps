@@ -56,7 +56,8 @@ body {
 	margin-left: -0.625em;
 }
 
-.face__eye {
+.face__eye,
+.face__eye-r {
 	position: absolute;
 	background-color: var(--black);
 	height: 0.62em;
@@ -64,7 +65,20 @@ body {
 	border-radius: 50%;
 	top: 1.87em;
 	left: 1.12em;
-	box-shadow: 2.5em 0 var(--black);
+	animation: 2s eye infinite;
+	box-sizing: border-box;
+	border-top: .3em solid var(--black);
+}
+
+.face__eye-r {
+	left: auto;
+	right: 1.12em;
+}
+
+@keyframes eye {
+50%{
+	background-color: transparent;
+}
 }
 
 .face__nose {
@@ -77,11 +91,19 @@ body {
 	border: 0.62em solid var(--brightred);
 	z-index: 1;
 	left: -0.93em;
+	animation: 2s nose infinite;
 }
 
 .face__nose-r {
 	left: auto;
 	right: -0.93em;
+	animation: 2s nose infinite;
+}
+
+@keyframes nose {
+	50%{
+		padding: .2em;
+	}
 }
 
 .face__ear {
@@ -189,6 +211,7 @@ body {
 	left: 2em;
 	top: 12em;
 	transform: rotate(25deg);
+	animation: wings infinite 5s;
 }
 
 .wing-r {
@@ -219,18 +242,18 @@ body {
 
 @keyframes wings {
 	50% {
-		rotate: -20deg;
+		transform: rotate(10deg);
 	}
 }
 
 @keyframes wings2 {
 	50% {
-		rotate: 20deg;
+		transform: rotate(-10deg);
 	}
 }
 
-.animation{
-    animation: wings infinite 5s;
+.animation {
+	animation: wings infinite 5s;
 }
 
 .hand {
@@ -256,7 +279,6 @@ body {
 	background-color: var(--brightred);
 	height: 2.32em;
 	width: 5.5em;
-	z-index: ;
 	top: 17.5em;
 	left: 8.6em;
 	border-radius: 5.62em;
@@ -300,10 +322,18 @@ body {
 	position: absolute;
 	bottom: 0;
 	left: -2.5em;
+	animation: leg 5s infinite;
 }
 
 .leg-r {
 	right: 9em;
 	left: auto;
 	transform: rotateY(180deg);
+}
+
+@keyframes leg {
+	50% {
+		transform: rotate(10deg);
+		transform-origin: bottom right;
+	}
 }
